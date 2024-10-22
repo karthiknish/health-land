@@ -462,8 +462,8 @@ export default function Home() {
             className="text-xl font-semibold mb-6 text-gray-800"
             variants={fadeIn}
           >
-            Ready to transform your business? Let's start the conversation and
-            unlock your company's full potential!
+            Ready to transform your business? Let&apos;s start the conversation
+            and unlock your company&apos;s full potential!
           </motion.p>
           <motion.a
             href="https://profici.co.uk/contact/"
