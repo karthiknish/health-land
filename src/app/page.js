@@ -74,14 +74,25 @@ export default function Home() {
           whileHover={{ scale: 1.02 }}
           transition={{ duration: 0.3 }}
         >
-          <ReactPlayer
-            ref={videoPlayerRef}
-            url="https://profici.co.uk/wp-content/uploads/2024/09/Brafiti-Business-Secrets-1.mp4"
-            width="100%"
-            height="auto"
-            playing={playing}
-            loop
-          />
+          {typeof window !== "undefined" && window.innerWidth < 768 ? (
+            <ReactPlayer
+              ref={videoPlayerRef}
+              url="https://profici.co.uk/wp-content/uploads/2024/07/Brafiti-Business-Secrets.mp4"
+              width="100%"
+              height="auto"
+              playing={playing}
+              loop
+            />
+          ) : (
+            <ReactPlayer
+              ref={videoPlayerRef}
+              url="https://profici.co.uk/wp-content/uploads/2024/09/Brafiti-Business-Secrets-1.mp4"
+              width="100%"
+              height="auto"
+              playing={playing}
+              loop
+            />
+          )}
           <motion.div
             className="absolute top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2 bg-black bg-opacity-50 rounded-full p-4 cursor-pointer"
             onClick={playPauseHandler}
