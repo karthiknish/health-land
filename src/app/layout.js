@@ -27,6 +27,7 @@ export default function RootLayout({ children }) {
           src="https://www.googletagmanager.com/gtag/js?id=AW-10832930955"
         />
         <Script
+          id="google-analytics"
           dangerouslySetInnerHTML={{
             __html: `
               window.dataLayer = window.dataLayer || [];
@@ -37,6 +38,7 @@ export default function RootLayout({ children }) {
           }}
         />
         <Script
+          id="facebook-pixel"
           defer
           dangerouslySetInnerHTML={{
             __html: `
