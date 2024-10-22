@@ -1,13 +1,15 @@
 "use client";
-import React, { useState, useRef, useEffect } from "react";
+import React, { useState, useRef } from "react";
 import { Play, Pause } from "lucide-react";
 import { DotPattern } from "@/components/ui/dot-pattern";
+import ShineBorder from "@/components/ui/shine-border";
 import {
   FaChartLine,
   FaCogs,
   FaBullhorn,
   FaUsers,
   FaChessKnight,
+  FaChartBar,
 } from "react-icons/fa";
 import { motion, AnimatePresence } from "framer-motion";
 import dynamic from "next/dynamic";
@@ -45,18 +47,19 @@ export default function Home() {
       animate="visible"
       variants={fadeIn}
     >
-      <DotPattern className="h-full opacity-20" />
+      <DotPattern className="h-full opacity-30" />
 
       <motion.header
         className="container mx-auto px-4 py-8"
         variants={sectionVariants}
       >
         <motion.h3
-          className="text-2xl md:text-5xl font-bold text-center mb-10 leading-snug bg-gradient-to-r from-blue-500 to-purple-600 text-transparent bg-clip-text p-2"
+          className="text-2xl md:text-5xl font-bold text-center text-black mb-10 leading-snug 0 bg-clip-text p-2"
           variants={fadeIn}
         >
-          Elevate Your Business: Comprehensive Health Check for Sustainable
-          Growth
+          Elevate Your Business with a <br /> Comprehensive Health Check for
+          Sustainable
+          <span className="text-yellow-400"> Growth</span>
         </motion.h3>
       </motion.header>
 
@@ -112,21 +115,54 @@ export default function Home() {
         className="container mx-auto px-4 text-center"
         variants={sectionVariants}
       >
-        <motion.p className="text-2xl font-bold mb-8" variants={fadeIn}>
-          Discover how our expert consultancy can revolutionize your business
-          strategy and boost your performance.
-        </motion.p>
+        <motion.div className="relative p-8  mb-12" variants={fadeIn}>
+          <motion.h2 className="text-3xl font-extrabold mb-4" variants={fadeIn}>
+            Transform Your Business with Expert Consultancy
+          </motion.h2>
+          <motion.p className="text-xl mb-6" variants={fadeIn}>
+            Revolutionize your strategy. Boost your performance. Achieve
+            unprecedented growth.
+          </motion.p>
+        </motion.div>
       </motion.div>
-      <motion.main className="max-w-6xl mx-auto" variants={sectionVariants}>
-        <motion.p
-          className="text-lg text-center mb-8 bg-white rounded-lg p-6"
+      <motion.main
+        className="max-w-6xl mx-auto text-left"
+        variants={sectionVariants}
+      >
+        <ShineBorder
+          className="bg-white rounded-lg p-8 shadow-lg m-4"
           variants={fadeIn}
         >
-          We propose an initial business consultancy health check, comprising a
-          comprehensive assessment of various aspects of your business to
-          evaluate its overall performance and identify areas for improvement.
-          This will include the following components:
-        </motion.p>
+          <h3 className="text-2xl font-semibold  mb-4 text-gray-800">
+            Business Health Check
+          </h3>
+          <p className="text-lg text-gray-600 mb-4">
+            Our comprehensive assessment evaluates key aspects of your business,
+            identifying strengths and areas for improvement.
+          </p>
+          <div className="text-left text-gray-600 mb-4 text-lg">
+            <div className="flex items-center mb-2">
+              <FaChartLine className="mr-2 text-blue-500" />
+              Financial Analysis
+            </div>
+            <div className="flex items-center mb-2">
+              <FaCogs className="mr-2 text-green-500" />
+              Operational Efficiency
+            </div>
+            <div className="flex items-center mb-2">
+              <FaChartBar className="mr-2 text-red-500" />
+              Sales and Marketing Analysis
+            </div>
+            <div className="flex items-center mb-2">
+              <FaUsers className="mr-2 text-purple-500" />
+              Human Resources Assessment
+            </div>
+            <div className="flex items-center">
+              <FaChessKnight className="mr-2 text-yellow-500" />
+              Strategic Alignment and Planning
+            </div>
+          </div>
+        </ShineBorder>
 
         <motion.div className="space-y-12" variants={sectionVariants}>
           <motion.section
