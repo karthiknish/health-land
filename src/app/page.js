@@ -3,6 +3,7 @@ import React, { useState, useRef } from "react";
 import { Play, Pause } from "lucide-react";
 import { DotPattern } from "@/components/ui/dot-pattern";
 import ShineBorder from "@/components/ui/shine-border";
+import SparklesText from "@/components/ui/sparkles-text";
 import {
   FaChartLine,
   FaCogs,
@@ -17,6 +18,7 @@ const ReactPlayer = dynamic(() => import("react-player"), { ssr: false });
 
 export default function Home() {
   const videoPlayerRef = useRef(null);
+  const [showIframe, setShowIframe] = useState(false);
   const [videoState, setVideoState] = useState({
     playing: false,
     played: 0,
@@ -501,14 +503,65 @@ export default function Home() {
             Ready to transform your business? Let&apos;s start the conversation
             and unlock your company&apos;s full potential!
           </motion.p>
-          <motion.a
-            href="https://profici.co.uk/contact/"
-            className="inline-block bg-black hover:bg-gray-700 text-white font-bold py-3 px-6 rounded-lg shadow-lg transition duration-300 ease-in-out transform hover:scale-105"
-            whileHover={{ scale: 1.05 }}
-            whileTap={{ scale: 0.95 }}
+          <motion.div
+            className="w-full"
+            initial={{ opacity: 0, y: 20 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.5 }}
           >
-            Contact Us
-          </motion.a>
+            {!showIframe ? (
+              <>
+                <motion.div
+                  className="flex flex-col md:flex-row items-center justify-between py-32 space-y-4 md:space-y-0 md:space-x-6"
+                  variants={fadeIn}
+                >
+                  <SparklesText
+                    text=" TAKE THE FIRST STEP TOWARDS OPTIMIZING YOUR BUSINESS
+                    PERFORMANCE"
+                    className="text-2xl max-w-md"
+                    variants={fadeIn}
+                  ></SparklesText>
+                  <motion.button
+                    className="transform bg-black text-white shadow-lg font-bold py-3 px-6 rounded-full uppercase tracking-wider"
+                    onClick={() => setShowIframe(true)}
+                    whileHover={{ scale: 1.05, rotate: 0 }}
+                    whileTap={{ scale: 0.95, rotate: 6 }}
+                  >
+                    Start Your Business Health Check
+                  </motion.button>
+                </motion.div>
+              </>
+            ) : (
+              <motion.div
+                initial={{ opacity: 0 }}
+                animate={{ opacity: 1 }}
+                transition={{ duration: 0.5 }}
+                className="relative h-[600px]"
+              >
+                {/* Loading animation */}
+                <motion.div
+                  initial={{ opacity: 1 }}
+                  animate={{ opacity: 0 }}
+                  transition={{ duration: 0.5, delay: 1 }}
+                  className="absolute inset-0 flex justify-center items-center"
+                >
+                  <div className="animate-spin rounded-full h-32 w-32 border-t-2 border-b-2 border-gray-900"></div>
+                </motion.div>
+
+                {/* Iframe */}
+                <motion.iframe
+                  initial={{ opacity: 0 }}
+                  animate={{ opacity: 1 }}
+                  transition={{ duration: 0.5, delay: 1 }}
+                  src="//profici.co.uk/gfembed/?f=1"
+                  width="100%"
+                  height="100%"
+                  frameBorder="0"
+                  className="gfiframe absolute inset-0"
+                ></motion.iframe>
+              </motion.div>
+            )}
+          </motion.div>
         </motion.div>
       </motion.main>
       <footer className="bg-gray-100 py-4 text-center">
