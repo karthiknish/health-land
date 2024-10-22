@@ -128,14 +128,27 @@ export default function Home() {
         className="container mx-auto px-4 text-center"
         variants={sectionVariants}
       >
-        <motion.div className="relative p-8  mb-12" variants={fadeIn}>
+        <motion.div className="relative p-8 mb-12" variants={fadeIn}>
           <motion.h2 className="text-3xl font-extrabold mb-4" variants={fadeIn}>
             Transform Your Business with Expert Consultancy
           </motion.h2>
           <motion.p className="text-xl mb-6" variants={fadeIn}>
-            Revolutionize your strategy. Boost your performance. Achieve
+            Revolutionise your strategy. Boost your performance. Achieve
             unprecedented growth.
           </motion.p>
+          <motion.button
+            className="bg-black hover:bg-black text-white font-bold py-2 px-4 rounded-full"
+            whileHover={{ scale: 1.05, rotate: 0 }}
+            whileTap={{ scale: 0.95, rotate: 6 }}
+            variants={fadeIn}
+            onClick={() => {
+              const lastSection =
+                document.querySelector("main").lastElementChild;
+              lastSection.scrollIntoView({ behavior: "smooth" });
+            }}
+          >
+            Start Now
+          </motion.button>
         </motion.div>
       </motion.div>
       <motion.main
@@ -527,7 +540,7 @@ export default function Home() {
                   variants={fadeIn}
                 >
                   <SparklesText
-                    text=" TAKE THE FIRST STEP TOWARDS OPTIMIZING YOUR BUSINESS
+                    text=" TAKE THE FIRST STEP TOWARDS OPTIMISING YOUR BUSINESS
                     PERFORMANCE"
                     className="text-2xl max-w-md"
                     variants={fadeIn}

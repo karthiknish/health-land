@@ -21,7 +21,7 @@ const Nav = () => {
   return (
     <nav className="relative w-full z-20 bg-white">
       <div className="container mx-auto px-4 py-4 flex justify-between items-center">
-        <div className="hidden lg:flex items-center space-x-8 lg:space-x-32">
+        <div className="hidden lg:flex items-center space-x-8 lg:space-x-44">
           {navLinks.slice(0, 2).map((link) => (
             <Link
               key={link.href}
@@ -41,7 +41,7 @@ const Nav = () => {
             priority
           />
         </Link>
-        <div className="hidden lg:flex items-center space-x-8 lg:space-x-32">
+        <div className="hidden lg:flex items-center space-x-8 lg:space-x-44">
           {navLinks.slice(2).map((link) => (
             <Link
               key={link.href}
